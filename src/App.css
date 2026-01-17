@@ -1,0 +1,474 @@
+/* Quitamos márgenes por defecto del navegador para que pegue a los bordes */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+
+
+
+/* 1. El contenedor que divide la pantalla */
+.layout-split {
+  display: flex;
+  /* Pone los divs uno al lado del otro */
+  height: 100vh;
+  /* Fuerza a ocupar el 100% de la altura de la pantalla */
+  width: 100vw;
+}
+
+/* 2. El Menú Rojo (Izquierda) */
+.menu-lateral-extendido {
+  width: 40%;
+  /* O puedes usar píxeles fijos ej: 400px */
+  background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+  /* Rojo estilo Apple/Moderno */
+  color: #ffffff;
+  padding: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* Centra el texto verticalmente */
+
+  /* Sombra para darle profundidad sobre el contenido oscuro */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  /* Asegura que la sombra quede por encima */
+}
+
+/* Tipografía del menú rojo (para que se parezca a tu foto) */
+.menu-lateral-extendido h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-align: left;
+  /* Alineado a la izquierda como la referencia */
+}
+
+.menu-lateral-comprimido {
+  width: 10%;
+  /* O puedes usar píxeles fijos ej: 400px */
+  background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+  /* Rojo estilo Apple/Moderno */
+  color: #ffffff;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* Centra el texto verticalmente */
+
+  /* Sombra para darle profundidad sobre el contenido oscuro */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  /* Asegura que la sombra quede por encima */
+}
+
+/* Tipografía del menú rojo (para que se parezca a tu foto) */
+.menu-lateral-comprimido h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-align: left;
+  /* Alineado a la izquierda como la referencia */
+}
+
+
+.botonCompresor {
+  position: relative;
+  left: 95%;
+  top: 0;
+  font-size: 30px;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.home {
+  font-size: 0.9rem;
+  margin-bottom: 40%;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  height: 30vh;
+  border-radius: 15px;
+
+
+  /* Centrado del texto */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  /* Sombra (la ajusté un poco para que combine con el rojo) */
+  box-shadow: 0px 10px 20px rgba(168, 50, 50, 0.4);
+
+  /* --- AQUÍ ESTÁ LA MAGIA DEL GRADIENTE --- */
+  /* Opción 1: Gradiente Lineal (más común) */
+  background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+
+  color: white;
+  font-weight: 500;
+  /* Un poco más grueso ayuda a la legibilidad */
+}
+
+.listaOpciones {
+  display: flex;
+  margin-bottom: 50%;
+}
+
+.listaOpciones-reducido {
+  display: flex;
+  flex-direction: column;
+}
+
+.opcion-menu {
+  background-color: #ffffff;
+  /* Un rojo un poco más oscuro para los botones */
+  padding: 15px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 70px;
+  height: 70px;
+  color: black;
+  box-shadow: 0px 5px 15px rgb(255, 225, 225);
+}
+
+.opcion-menu-reducido {
+  background-color: #ffffff;
+  /* Un rojo un poco más oscuro para los botones */
+  display: flex;
+  padding: 15px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 15px;
+  height: 15px;
+  color: black;
+  box-shadow: 0px 5px 15px rgb(255, 225, 225);
+}
+
+.footer-menu-extendido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.opcion-menu:hover {
+  background-color: #93080F;
+  /* Más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+  /* Efecto de levantarse */
+}
+
+.opcion-menu img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.opcion-menu-reducido img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. El Contenido del Formulario (Derecha) */
+.contenido-scroll {
+  flex: 1;
+  /* Ocupa todo el espacio restante */
+  background-color: #EDEDED;
+  /* El fondo oscuro que ya teníamos */
+  overflow-y: auto;
+  /* <--- ESTO ES LA CLAVE: Solo esta parte scrollea */
+  padding: 40px;
+  /* Un poco de aire interno */
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal de las columnas */
+.inserts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+
+}
+
+/* Tarjetas (div.formulario) */
+.formulario {
+  background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+  color: white;
+  border-radius: 12px;
+  padding: 30px;
+  flex: 1;
+  min-width: 350px;
+  box-shadow: 0px 10px 20px rgba(168, 50, 50, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #551111;
+  padding-bottom: 15px;
+}
+
+/* Etiquetas (h5 actuando como labels) */
+.formulario h5 {
+  margin: 15px 0 8px 0;
+  font-size: 0.85rem;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Inputs y Selects */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #551111;
+  border: 0px;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  /* Para que el padding no rompa el ancho */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus {
+  box-shadow: 0px 10px 20px rgba(168, 50, 50, 0.4);
+}
+
+/* Ajuste específico para el contenedor de puestos (el div con flex en tu JSX) */
+.formulario>div[style*="display: flex"] {
+  margin-top: 10px;
+}
+
+.formulario h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* Botones */
+button {
+  background: radial-gradient(circle at 30% 30%, #832828, #5f1818);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* --- Estilos para las Listas (Duplas y Puestos) --- */
+
+/* Reutilizamos el estilo de tarjeta, pero para las listas */
+.lista {
+  background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  min-width: 350px;
+  border: 1px solid #832828;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  /* Opcional: Para que scrollee si hay muchos */
+  overflow-y: auto;
+  margin-top: 20px;
+  scrollbar-width: none;
+}
+
+.lista h2 {
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.listaSemanal {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* --- Mini Cards para items individuales --- */
+.item-gv,
+.item {
+  background: radial-gradient(circle at 30% 30%, #832828, #5f1818);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid #ffffff;
+  /* Línea de acento a la izquierda */
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.item-gv:hover,
+.item:hover {
+  background-color: #3a3a3a;
+}
+
+/* Tipografía dentro de las cards */
+.item-gv p,
+.item p {
+  margin: 5px 0;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.item-gv strong {
+  color: #fff;
+}
+
+/* Ajuste específico para la lista de puestos (que usa flexrow en tu mente visual) */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item h3 {
+  margin: 0;
+  color: #888;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+/* --- Botones dentro de las listas --- */
+
+/* Botón de Eliminar (X) - Lo hacemos rojo y compacto */
+.item button,
+.item-gv button {
+  width: auto;
+  /* Ya no ocupa todo el ancho */
+  margin-top: 10px;
+  margin-right: 5px;
+  padding: 8px 15px;
+  font-size: 0.8rem;
+}
+
+/* El botón X específico (suponiendo que es el que contiene "X") */
+.btn-delete,
+.item-gv button:first-of-type {
+  /* Ojo: esto asume que el primer botón es el de borrar. 
+      Si quieres ser más seguro, agrégale una className='btn-delete' al botón en React */
+  background: linear-gradient(135deg, #ff4d4d 0%, #cc0000 100%);
+  box-shadow: 0 4px 10px rgba(204, 0, 0, 0.3);
+}
+
+.item button:hover,
+.item-gv button:first-of-type:hover {
+  box-shadow: 0 6px 15px rgba(204, 0, 0, 0.5);
+}
+
+/* Botones de acción secundaria (Hacer/Quitar Franquera) */
+.item-gv button:not(:first-of-type) {
+  background: linear-gradient(135deg, #555 0%, #333 100%);
+  /* Gris neutro */
+  border: 1px solid #666;
+}
+
+.item-gv button:not(:first-of-type):hover {
+  background: #444;
+  border-color: #888;
+}
+
+/* --- Sección Inferior (Vista previa y Exportar) --- */
+
+/* Estilo para el input de rotación */
+input[type="number"] {
+  width: 100px !important;
+  /* Forzamos tamaño pequeño */
+  text-align: center;
+  display: block;
+  margin: 0 auto 20px auto;
+  /* Centrado */
+}
+
+/* Botón de Excel - Verde Profesional */
+.btn-exportar {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  width: auto;
+  min-width: 250px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  display: block;
+  margin: 0 auto;
+  /* Centrado */
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+.btn-exportar:hover {
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+  transform: translateY(-2px);
+}

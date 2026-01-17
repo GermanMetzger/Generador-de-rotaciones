@@ -1,0 +1,168 @@
+@media (max-width: 768px) {
+
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    .home {
+        font-size: 0.9rem;
+        margin-bottom: 40%;
+        text-align: left;
+        cursor: pointer;
+        width: 90vw;
+        height: 30vh;
+        border-radius: 15px;
+
+
+        /* Centrado del texto */
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        /* Sombra (la ajusté un poco para que combine con el rojo) */
+        box-shadow: 0px 10px 20px rgba(168, 50, 50, 0.4);
+
+        /* Opción 1: Gradiente Lineal (más común) */
+        background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+
+        color: white;
+        font-weight: 500;
+        /* Un poco más grueso ayuda a la legibilidad */
+    }
+
+    .layout-split {
+        display: flex;
+        flex-direction: column;
+        /* Pone los divs uno al lado del otro */
+        height: 100vh;
+        /* Fuerza a ocupar el 100% de la altura de la pantalla */
+        width: 100vw;
+    }
+
+    .contenido-scroll {
+        flex: 1;
+        /* Ocupa todo el espacio restante */
+        background-color: #EDEDED;
+        /* El fondo oscuro que ya teníamos */
+        overflow-y: auto;
+        /* <--- ESTO ES LA CLAVE: Solo esta parte scrollea */
+        padding: 40px;
+        /* Un poco de aire interno */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inserts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+
+    .menu-lateral-comprimido {
+        width: 100%;
+        /* O puedes usar píxeles fijos ej: 400px */
+        background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+        /* Rojo estilo Apple/Moderno */
+        color: #ffffff;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        /* Centra el texto verticalmente */
+
+        /* Sombra para darle profundidad sobre el contenido oscuro */
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        /* Asegura que la sombra quede por encima */
+    }
+
+    .listaOpciones-reducido {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+    /*no existe el boton*/
+    .botonCompresor {
+        display: none;
+    }
+
+    .opcion-menu-reducido {
+        background-color: #ffffff;
+        /* Un rojo un poco más oscuro para los botones */
+        display: flex;
+        padding: 15px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.2s;
+        width: 25px;
+        height: 25px;
+        color: black;
+        box-shadow: 0px 5px 15px rgb(255, 225, 225);
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    .contenido-scroll {
+        flex: 1;
+        /* Ocupa todo el espacio restante */
+        background-color: #EDEDED;
+        /* El fondo oscuro que ya teníamos */
+        overflow-y: auto;
+        /* <--- ESTO ES LA CLAVE: Solo esta parte scrollea */
+        padding: 0px;
+        /* Un poco de aire interno */
+        position: relative;
+    }
+
+    .formulario {
+        background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+        color: white;
+        border-radius: 12px;
+        flex: 1;
+        max-width: 80vw;
+        min-width: 60vw;
+        box-shadow: 0px 10px 20px rgba(168, 50, 50, 0.4);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lista {
+        background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+        border-radius: 12px;
+        padding: 10px;
+        flex: 1;
+        min-width: 350px;
+        border: 1px solid #832828;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        /* Opcional: Para que scrollee si hay muchos */
+        overflow-y: auto;
+        margin-top: 20px;
+        scrollbar-width: none;
+    }
+
+
+}

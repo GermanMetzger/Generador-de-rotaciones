@@ -1,0 +1,9 @@
+
+.semana {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  border: 1px solid red;
+  width: 80vw;
+}
