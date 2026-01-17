@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 854px) {
 
     body,
     html {
@@ -17,6 +17,7 @@
         width: 90vw;
         height: 30vh;
         border-radius: 15px;
+        margin-top: 20px;
 
 
         /* Centrado del texto */
@@ -90,7 +91,29 @@
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
         z-index: 10;
         /* Asegura que la sombra quede por encima */
+        height: 15vh;
+        min-height: 10vh;
     }
+
+    @media (orientation: landscape) {
+        .menu-lateral-comprimido {
+            width: 100%;
+            /* O puedes usar píxeles fijos ej: 400px */
+            background: radial-gradient(circle at 30% 30%, #c52a2a, #e00000);
+            /* Rojo estilo Apple/Moderno */
+            color: #ffffff;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            /* Centra el texto verticalmente */
+    
+            /* Sombra para darle profundidad sobre el contenido oscuro */
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            /* Asegura que la sombra quede por encima */
+            height: 20vh;
+        }
+      }
 
     .listaOpciones-reducido {
         display: flex;
@@ -123,6 +146,8 @@
         align-items: center;
         justify-content: center;
     }
+
+
 
 
 

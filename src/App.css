@@ -207,6 +207,16 @@ html {
   position: relative;
 }
 
+.titulo{
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 2px;
+}
+
 h1 {
   text-align: center;
   color: #ffffff;

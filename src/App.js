@@ -26,7 +26,7 @@ function App() {
   const [historial, setHistorial] = useState({});
   const [semanas, setSemanas] = useState([]);
   const [feriados, setFeriados] = useState([]);
-  const [menuLateralExtendido, setMenuLateralExtendido] = useState(() =>{ return window.innerWidth > 768});
+  const [menuLateralExtendido, setMenuLateralExtendido] = useState(() => { return window.innerWidth > 854 });
 
   //--------------------------------------------------------------------------------------------
   // si fecha inicio es 2025 y fecha fin es el año siguiente, traer feriados de 2026 tambien
@@ -35,9 +35,9 @@ function App() {
 
 
 
-  useEffect(() =>{
-    const handleResize = () =>{
-      if(window.innerWidth < 768) {
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
         setMenuLateralExtendido(false);
       }
     }
@@ -385,9 +385,17 @@ function App() {
   useEffect(() => {
     const nuevasSemanas = rangoFechas.map((semana) => {
       const { filas } = generarFilas(puestos, duplas, historial, semana);
+      const isMobile = window.innerWidth < 854;
 
       const colDefs = [
-        { field: "puesto", headerName: "Puestos", width: 120, pinned: 'left' },
+        {
+          field: "puesto",
+          headerName: "Puestos",
+          width: isMobile ? 75 : 120,
+          minWidth: 60,
+          maxWidth: 120,
+          pinned: 'left'
+        },
         ...semana.map(dia => {
 
           // 1. Detectamos si es Feriado
@@ -405,7 +413,14 @@ function App() {
               : esPrimerDia
                 ? `${dia.name} ${dia.day} (P)` // 2. Si NO es feriado, ¿Es primer día? Pon (P)
                 : `${dia.name} ${dia.day}`,    // 3. Si no es nada, pon el texto normal
-            width: 145,
+            flex: isMobile ? 0 : 1,
+
+            // En Celular las hacemos más finas (75px) para ver más días. En PC base de 145px.
+            width: isMobile ? 75 : 145,
+
+            minWidth: 75, // Para que nunca sea ilegible
+
+
 
 
             // 1) cellStyle: Pinta el FONDO de la celda (Jueves Feriado = Rojo Suave)
@@ -626,8 +641,9 @@ function App() {
               }
             }}
             style={{ cursor: 'pointer' }} // Para que salga la manito
+            className='titulo'
           >
-            <h1>G<span style={{ color: "#760000" }}>R</span> </h1>
+            <div> G<span style={{ color: "#760000" }}>R</span></div>
           </div>
         )}
 
@@ -697,13 +713,13 @@ function App() {
         )}
 
         {menuLateralExtendido && (
-                      <footer className='footer-menu-extendido'>
-                         <hr style={{ width: '100%', color: "white"}}></hr>
-                         <h3> German Ariel Metzger </h3> <strong style={{ color: "#551111"}}>Desarrolador</strong>
-                         <hr style={{ width: '100%', color: "white"}}></hr>
-                         <h3> Roma Pazo </h3> <strong style={{ color: "#551111"}}>Diseñadora</strong>
-                         <hr style={{ width: '100%', color: "white"}}></hr>
-                          </footer>
+          <footer className='footer-menu-extendido'>
+            <hr style={{ width: '100%', color: "white" }}></hr>
+            <h3> German Ariel Metzger </h3> <strong style={{ color: "#551111" }}>Desarrolador</strong>
+            <hr style={{ width: '100%', color: "white" }}></hr>
+            <h3> Roma Pazo </h3> <strong style={{ color: "#551111" }}>Diseñadora</strong>
+            <hr style={{ width: '100%', color: "white" }}></hr>
+          </footer>
         )}
 
         {!menuLateralExtendido && (

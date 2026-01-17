@@ -1,4 +1,3 @@
-
 .semana {
   margin: 20px;
   display: flex;
@@ -6,4 +5,60 @@
   flex-direction: row;
   border: 1px solid red;
   width: 80vw;
+}
+
+.grid-container {
+  height: 325px;
+  width: 70vw;
+  margin: 25px;
+}
+
+
+@media (max-width: 854px) {
+
+  .grid-container {
+    width: 90vw;
+    /* Ocupa casi toda la pantalla en móvil */
+    margin: 10px auto;
+    /* Menos margen */
+  }
+
+
+
+  /* OJO: Sin espacio entre .grid-container y .ag-theme-quartz porque están en el mismo div */
+  .grid-container.ag-theme-quartz {
+    --ag-row-height: 45px !important;
+    /* Forzamos fila pequeña */
+    --ag-header-height: 30px !important;
+    /* Cabecera pequeña */
+    --ag-font-size: 13px !important;
+    /* Letra mini */
+    --ag-list-item-height: 30px !important;
+  }
+
+  /* Ajuste extra para las celdas específicamente si lo de arriba falla */
+  .grid-container.ag-theme-quartz .ag-cell {
+    line-height: 28px !important;
+    /* Centrar texto verticalmente */
+    padding-left: 1px !important;
+    /* Menos relleno lateral */
+    padding-right: 1px !important;
+  }
+
+  /* Permite que el texto del encabezado baje a la siguiente línea */
+  .header-multiline .ag-header-cell-label {
+    white-space: normal !important;
+    /* Permite saltos de línea */
+    line-height: 1.2 !important;
+    /* Altura de línea más pegadita */
+    text-align: center;
+    /* Centra el texto */
+    justify-content: center;
+    /* Centra flexbox horizontalmente */
+  }
+
+  /* Opcional: Asegura que el texto interior también se comporte bien */
+  .header-multiline .ag-header-cell-text {
+    overflow-wrap: break-word;
+  }
 }

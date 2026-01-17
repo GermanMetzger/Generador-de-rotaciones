@@ -20,13 +20,13 @@ export default function Semana({rowData, colDefs}) {
 
 
 
-
   return (
-    <div className="ag-theme-quartz" style={{ height: 325, width: "70vw",margin: "25px" }}>
+    <div className="grid-container ag-theme-quartz ">
       <AgGridReact
         rowData={rowData}
         columnDefs={colDefs}
         animateRows={true}
+        headerHeight={70}
         theme="legacy"
         defaultColDef={{ minWidth: 20, resizable: true }} />
     </div>
